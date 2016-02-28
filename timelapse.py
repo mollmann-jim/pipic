@@ -342,9 +342,9 @@ def main(argv):
     TL = timelapse(w=args.width, h=args.height, interval=args.interval, maxshots=args.maxshots, maxtime=args.maxtime, targetBrightness=args.brightness, maxdelta=args.delta, iso=args.iso)
 
     try:
-        os.listdir('/home/pi/pictures')
+        os.listdir('/home/jim/pictures')
     except:
-        os.mkdir('/home/pi/pictures')
+        os.mkdir('/home/jim/pictures')
 
     if args.listen:
         TL.listen()
