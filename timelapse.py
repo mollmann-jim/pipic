@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-import Image
+#import Image
+import PIL
+from PIL import Image
 import os, sys, argparse
 import subprocess
 import time
@@ -275,7 +277,7 @@ class timelapse:
             self.socket.send(command)
 
             #Take a picture.
-            filename='/home/pi/pictures/'+self.hostname+'_'+dtime+'.jpg'
+            filename='/home/jim/pictures/'+self.hostname+'_'+dtime+'.jpg'
             self.shoot(filename=filename)
 
             loopend=time.time()
@@ -312,7 +314,7 @@ class timelapse:
                 break
             elif command[1]=="shoot":
                 [ch,com,w,h,ss,iso,dtime]=command
-                filename='/home/pi/pictures/'+hostname+'_'+dtime+'.jpg'
+                filename='/home/jim/pictures/'+hostname+'_'+dtime+'.jpg'
                 self.shoot(filename)
                 print 'SS: ', self.currentss, '\tISO: ', self.currentiso, '\t', self.lastbr, '\t', self.shots_taken
 
