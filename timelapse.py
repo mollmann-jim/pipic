@@ -73,6 +73,7 @@ class timelapse:
         #Setting the maxss under one second prevents flipping into a slower camera mode.
         #self.maxss=1500000
         self.maxss=999000
+        self.maxss=9999000
         self.minss=100
         self.floatToSS = lambda x : max(min(int(self.minss+(self.maxss-self.minss)*x), self.maxss), self.minss)
         self.SSToFloat = lambda ss : max(min((float(ss)-self.minss)/(self.maxss-self.minss),1.0),0.0)
@@ -169,6 +170,8 @@ class timelapse:
         """
         # Create the in-memory stream
         stream = io.BytesIO()
+        self.camera.flip='true'
+        self.camera.flop='true'
         self.camera.ISO=self.iso
         self.camera.shutter_speed=self.currentss
         x=self.SSToFloat(self.currentss)
